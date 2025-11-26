@@ -15,6 +15,7 @@
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="diskette - ui design lab">
     <meta name="twitter:description" content="playful ui design lab with a quirky personality">
+    <meta name="twitter:image" content="/assets/socials/twitter-square.png">
 
     <title>diskette - ui design lab</title>
 
@@ -23,9 +24,9 @@
     <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96x96.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
 
-    <link rel="preload" href="assets/fonts/rage soft regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="assets/fonts/rage soft thin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="assets/fonts/rage soft extrabold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/rage-soft-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/rage-soft-thin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/rage-soft-extrabold.woff2" as="font" type="font/woff2" crossorigin>
 
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
@@ -37,27 +38,38 @@
                 <svg id="pippin" width="196px" height="204px" viewBox="0 0 196 204" version="1.1"
                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                     aria-label="pippin the floppy disk mascot">
-                    <title>pippin</title>
-                    <g id="export" stroke="none" fill="none" fill-rule="evenodd" stroke-width="1">
-                        <g id="pippin">
-                            <path
-                                d="M0,173.233378 L0,30.7666224 C0,20.0683975 1.11390733,16.1889627 3.20559245,12.2778516 C5.29727756,8.36674045 8.36674045,5.29727756 12.2778516,3.20559245 C16.1889627,1.11390733 20.0683975,0 30.7666224,0 L126.769476,2.11892626e-14 C137.108528,-5.72786541e-15 140.797087,0.399429198 144.843791,1.36336438 C148.890495,2.32729956 152.467556,3.85574073 155.96131,6.11376467 C159.455063,8.37178861 162.293323,10.761201 169.43991,18.232633 L174,23 L174,23 L179.283541,28.5237017 C186.283786,35.8421399 188.442768,38.6047316 190.495985,41.9993543 C192.549203,45.3939769 193.925206,48.8232069 194.787906,52.6955335 C195.650605,56.5678602 196,60.056562 196,70.1838999 L196,173.233378 C196,183.931602 194.886093,187.811037 192.794408,191.722148 C190.702722,195.63326 187.63326,198.702722 183.722148,200.794408 C179.811037,202.886093 175.931602,204 165.233378,204 L30.7666224,204 C20.0683975,204 16.1889627,202.886093 12.2778516,200.794408 C8.36674045,198.702722 5.29727756,195.63326 3.20559245,191.722148 C1.11390733,187.811037 0,183.931602 0,173.233378 Z"
-                                id="floppy" fill="#85BBFF"></path>
-                            <g id="eyes" transform="translate(21, 107)">
-                                <g id="left-eye">
-                                    <circle id="left-white" fill="#FFFFFF" cx="32" cy="32" r="32"></circle>
-                                    <circle id="left-pupil" fill="#000000" cx="25" cy="39" r="17"></circle>
-                                </g>
-                                <g id="right-eye" transform="translate(88, 0)">
-                                    <circle id="right-white" fill="#FFFFFF"
-                                        transform="translate(33, 32) rotate(180) translate(-33, -32)" cx="33" cy="32"
-                                        r="32"></circle>
-                                    <circle id="right-pupil" fill="#000000"
-                                        transform="translate(40, 25) rotate(180) translate(-40, -25)" cx="40" cy="25"
-                                        r="17"></circle>
-                                </g>
-                            </g>
+                    <defs>
+                        <path
+                            d="M0,173.233378 L0,30.7666224 C0,20.0683975 1.11390733,16.1889627 3.20559245,12.2778516 C5.29727756,8.36674045 8.36674045,5.29727756 12.2778516,3.20559245 C16.1889627,1.11390733 20.0683975,0 30.7666224,0 L126.769476,2.11892626e-14 C137.108528,-5.72786541e-15 140.797087,0.399429198 144.843791,1.36336438 C148.890495,2.32729956 152.467556,3.85574073 155.96131,6.11376467 C159.455063,8.37178861 162.293323,10.761201 169.43991,18.232633 L174,23 L174,23 L179.283541,28.5237017 C186.283786,35.8421399 188.442768,38.6047316 190.495985,41.9993543 C192.549203,45.3939769 193.925206,48.8232069 194.787906,52.6955335 C195.650605,56.5678602 196,60.056562 196,70.1838999 L196,173.233378 C196,183.931602 194.886093,187.811037 192.794408,191.722148 C190.702722,195.63326 187.63326,198.702722 183.722148,200.794408 C179.811037,202.886093 175.931602,204 165.233378,204 L30.7666224,204 C20.0683975,204 16.1889627,202.886093 12.2778516,200.794408 C8.36674045,198.702722 5.29727756,195.63326 3.20559245,191.722148 C1.11390733,187.811037 0,183.931602 0,173.233378 Z"
+                            id="path-1"></path>
+                    </defs>
+                    <g id="export" stroke="none" fill="none">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <use id="floppy-mask" fill="#85BBFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                        <path
+                            d="M0,173.233378 L0,30.7666224 C0,20.0683975 1.11390733,16.1889627 3.20559245,12.2778516 C5.29727756,8.36674045 8.36674045,5.29727756 12.2778516,3.20559245 C16.1889627,1.11390733 20.0683975,0 30.7666224,0 L126.769476,2.11892626e-14 C137.108528,-5.72786541e-15 140.797087,0.399429198 144.843791,1.36336438 C148.890495,2.32729956 152.467556,3.85574073 155.96131,6.11376467 C159.455063,8.37178861 162.293323,10.761201 169.43991,18.232633 L174,23 L174,23 L179.283541,28.5237017 C186.283786,35.8421399 188.442768,38.6047316 190.495985,41.9993543 C192.549203,45.3939769 193.925206,48.8232069 194.787906,52.6955335 C195.650605,56.5678602 196,60.056562 196,70.1838999 L196,173.233378 C196,183.931602 194.886093,187.811037 192.794408,191.722148 C190.702722,195.63326 187.63326,198.702722 183.722148,200.794408 C179.811037,202.886093 175.931602,204 165.233378,204 L30.7666224,204 C20.0683975,204 16.1889627,202.886093 12.2778516,200.794408 C8.36674045,198.702722 5.29727756,195.63326 3.20559245,191.722148 C1.11390733,187.811037 0,183.931602 0,173.233378 Z"
+                            id="floppy" fill="#85BBFF" fill-rule="evenodd" mask="url(#mask-2)"></path>
+                        <g id="left-eye">
+                            <circle id="left-white" fill="#FFFFFF" fill-rule="evenodd" mask="url(#mask-2)" cx="53"
+                                cy="123" r="32"></circle>
+                            <circle id="left-pupil" fill="#000000" fill-rule="evenodd" mask="url(#mask-2)" cx="46"
+                                cy="130" r="17"></circle>
                         </g>
+                        <g id="right-eye">
+                            <circle id="right-white" fill="#FFFFFF" fill-rule="evenodd" mask="url(#mask-2)" cx="142"
+                                cy="123" r="32"></circle>
+                            <circle id="right-pupil" fill="#000000" fill-rule="evenodd" mask="url(#mask-2)" cx="149"
+                                cy="116" r="17"></circle>
+                        </g>
+                        <g>
+                            <path
+                                d="M40,0 L133,0 L133,42.7444592 L132.994717,43.450585 C132.947236,46.4889492 132.580613,47.6935897 131.931469,48.9073828 C131.234241,50.2110865 130.211087,51.2342408 128.907383,51.9314692 L128.637053,52.0710579 C127.414504,52.6781457 126.064598,53 122.744459,53 L50.2555408,53 L49.549415,52.9947169 C46.5110508,52.9472357 45.3064103,52.5806128 44.0926172,51.9314692 C42.7889135,51.2342408 41.7657592,50.2110865 41.0685308,48.9073828 L40.9289421,48.6370527 C40.3443391,47.4597833 40.0242323,46.1644163 40.0013226,43.1053492 L40,0 Z"
+                                id="slide-lock" fill="#FFFFFF" fill-rule="evenodd" mask="url(#mask-2)"></path>
+                        </g>
+                        <ellipse id="mouth" fill="#FFFFFF" fill-rule="evenodd" mask="url(#mask-2)" cx="98.5" cy="165"
+                            rx="26.5" ry="10"></ellipse>
                     </g>
                 </svg>
             </div>
@@ -70,7 +82,8 @@
             <p>i started diskette as a small design lab focused on fun and intuitive
                 user
                 interfaces, unique identities, and outside-the-box thinking. behind diskette is me, <a
-                    href="https://owen.uno/" target="_blank">owen van vooren</a>, a designer who loves turning ideas both mundane and
+                    href="https://owen.uno/" target="_blank">owen van vooren</a>, a designer who loves turning ideas
+                both mundane and
                 extraordinary into wonderful visuals with personality and purpose. i work closely with clients to create
                 a polished final product that feels intentional, modern, and uniquely theirs.</p>
         </section>
@@ -84,7 +97,7 @@
                         <li>ui/ux design</li>
                         <li>brand identity</li>
                         <li>prototyping</li>
-                        <li>ui/brand kit</li>
+                        <li>ui/brand kits</li>
                     </ul>
                 </div>
                 <div class="skill-category">
@@ -115,30 +128,94 @@
                     <div class="project-image">
                         <img src="assets/images/nocturne.png" alt="nocturne project">
                     </div>
-                    <h3>nocturne</h3>
-                    <p>notetaking app for ios with a minimal and user-friendly design</p>
+                    <div class="project-card-content">
+                        <h3>nocturne</h3>
+                        <p>notetaking app for ios with a minimal and user-friendly design</p>
+                    </div>
                 </a>
                 <a href="https://pom-pom.owen.uno/" target="_blank" rel="noopener noreferrer" class="project-card">
                     <div class="project-image">
                         <img src="assets/images/pom-pom.png" alt="pom-pom project">
                     </div>
-                    <h3>pom-pom</h3>
-                    <p>a simple yet powerful pomodoro app for ios with native integration</p>
+                    <div class="project-card-content">
+                        <h3>pom-pom</h3>
+                        <p>a simple yet powerful pomodoro app for ios with native integration</p>
+                    </div>
                 </a>
                 <a href="https://owen.uno/" target="_blank" rel="noopener noreferrer" class="project-card">
                     <div class="project-image">
                         <img src="assets/images/personal site.png" alt="personal site project">
                     </div>
-                    <h3>personal site</h3>
-                    <p>a fun snapshot of some of my projects and skills</p>
+                    <div class="project-card-content">
+                        <h3>personal site</h3>
+                        <p>a fun snapshot of some of my projects and skills</p>
+                    </div>
                 </a>
+            </div>
+        </section>
+
+        <section class="beliefs">
+            <h2>design beliefs</h2>
+            <p>i believe design should be approachable, not intimidating. the best interfaces feel natural, intuitive,
+                and delightful. every small microinteraction and animation can have a profound impact on the way people
+                experience a product, service, or tool. fun, playful, and quirky interfaces tend to resonate with people
+                better than a generic, lifeless design. creating an effective, memorable, and seamless experience
+                involves making people feel something wonderful.</p>
+        </section>
+
+        <section class="faq">
+            <h2>frequently asked questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>how long does a project take?</span>
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>project timelines vary depending on scope and complexity. a simple brand identity might take
+                            2-3 weeks, while a full ui/ux design project could take 4-8 weeks. i&rsquo;ll provide a
+                            clear timeline estimate during our initial consultation based on your specific needs.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>do you work with small budgets?</span>
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>absolutely! as a freelance designer, i believe great design should be accessible to
+                            everyone. i offer flexible packages and can work with various budget sizes.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>can you design logos?</span>
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>yes! logo design is part of my brand identity services. i create unique, memorable logos that
+                            capture your brand's personality and work across all platforms and sizes.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>do you code sites or apps?</span>
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>it depends on the complexity of the project, but at the very least, i can create a simple
+                            site, app, or interactive mockup with basic functionality. i may also be able to fully
+                            execute some projects with less complex functionality. keep in mind that i'm currently
+                            limited to ios and web applications only.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section class="contact">
             <h2>let's chat</h2>
             <p>ready to work together? shoot me an email, and we&rsquo;ll create something special.</p>
-            <a href="mailto:hello@diskette.design" class="contact-link">hello@diskette.design</a>
+            <a href="mailto:hello@diskette.design" class="contact-link"><span>hello@diskette.design</span></a>
         </section>
     </main>
 
@@ -148,6 +225,22 @@
     </footer>
 
     <script src="assets/js/primary.js"></script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-analytics.js";
+        const firebaseConfig = {
+            apiKey: "AIzaSyD_TcHkeAJAOM_ZVJYLq99xzrD0Bfez7t8",
+            authDomain: "diskette-analytics.firebaseapp.com",
+            projectId: "diskette-analytics",
+            storageBucket: "diskette-analytics.firebasestorage.app",
+            messagingSenderId: "1050708044692",
+            appId: "1:1050708044692:web:a31c89dbf30df7d9283d81",
+            measurementId: "G-Y477GFTN2P"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+    </script>
 </body>
 
 </html>

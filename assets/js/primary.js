@@ -157,14 +157,17 @@ class EyeTracker {
       return;
     }
 
-    if (isNaN(event.clientX) || isNaN(event.clientY)) {
+    const clientX = event.clientX ?? event.touches?.[0]?.clientX;
+    const clientY = event.clientY ?? event.touches?.[0]?.clientY;
+
+    if (isNaN(clientX) || isNaN(clientY)) {
       console.warn('Invalid cursor coordinates detected');
       return;
     }
 
     const cursorPos = {
-      x: event.clientX,
-      y: event.clientY
+      x: clientX,
+      y: clientY
     };
 
     const leftPupilPos = calculatePupilPosition(
@@ -257,14 +260,10 @@ class ThemeDetector {
     } else if (this.mediaQuery.addListener) {
       this.mediaQuery.addListener(this.listener);
     }
-
-    console.log(`Theme detector initialized. Current theme: ${this.currentTheme}`);
   }
 
   handleThemeChange(event) {
     this.currentTheme = event.matches ? 'dark' : 'light';
-    
-    console.log(`Theme changed to: ${this.currentTheme}`);
     
     const themeChangeEvent = new CustomEvent('themechange', {
       detail: { theme: this.currentTheme }
@@ -274,7 +273,6 @@ class ThemeDetector {
 
   useFallback() {
     this.currentTheme = 'light';
-    console.log('Using fallback theme: light');
   }
 
   getCurrentTheme() {
@@ -305,8 +303,11 @@ document.addEventListener('DOMContentLoaded', () => {
     eyeTracker.init();
 
     document.addEventListener('mousemove', eyeTracker.handleMouseMove);
+    document.addEventListener('touchmove', eyeTracker.handleMouseMove);
+    document.addEventListener('touchstart', eyeTracker.handleMouseMove);
     
     document.addEventListener('mouseleave', eyeTracker.handleMouseLeave);
+    document.addEventListener('touchend', eyeTracker.handleMouseLeave);
     
     window.addEventListener('resize', eyeTracker.handleResize);
     
@@ -317,4 +318,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const themeDetector = new ThemeDetector();
   themeDetector.init();
+
+  const faqQuestions = document.querySelectorAll('.faq-question');
+  faqQuestions.forEach(question => {
+    question.addEventListener('click', () => {
+      const faqItem = question.parentElement;
+      const isActive = faqItem.classList.contains('active');
+      
+      document.querySelectorAll('.faq-item').forEach(item => {
+        item.classList.remove('active');
+        item.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+      });
+      
+      if (!isActive) {
+        faqItem.classList.add('active');
+        question.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
 });
