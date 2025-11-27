@@ -62,11 +62,15 @@ class EyeTracker {
     this.lastLeftPosition = { x: 0, y: 0 };
     this.lastRightPosition = { x: 0, y: 0 };
 
+    this.currentCursorPos = null;
+    this.rafId = null;
+
     this.handleMouseMove = this.handleMouseMove.bind(this);
     this.handleMouseLeave = this.handleMouseLeave.bind(this);
     this.resetPupils = this.resetPupils.bind(this);
     this.handleResize = this.handleResize.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
+    this.updateLoop = this.updateLoop.bind(this);
   }
 
   init() {
@@ -78,6 +82,8 @@ class EyeTracker {
     this.storeOriginalPupilPositions();
 
     this.calculateEyeCenters();
+
+    this.startUpdateLoop();
   }
 
   storeOriginalPupilPositions() {
@@ -100,6 +106,7 @@ class EyeTracker {
       leftPupil.setAttribute('cx', leftWhiteCx);
       leftPupil.setAttribute('cy', leftWhiteCy);
       
+      leftPupil.style.willChange = 'transform';
       leftPupil.style.transition = 'transform 0.15s ease-out';
       
       leftPupil.style.transform = `translate(${this.originalLeftPupilPos.x}px, ${this.originalLeftPupilPos.y}px)`;
@@ -119,6 +126,7 @@ class EyeTracker {
       rightPupil.setAttribute('cx', rightWhiteCx);
       rightPupil.setAttribute('cy', rightWhiteCy);
       
+      rightPupil.style.willChange = 'transform';
       rightPupil.style.transition = 'transform 0.15s ease-out';
       
       rightPupil.style.transform = `translate(${this.originalRightPupilPos.x}px, ${this.originalRightPupilPos.y}px)`;
@@ -165,29 +173,41 @@ class EyeTracker {
       return;
     }
 
-    const cursorPos = {
+    this.currentCursorPos = {
       x: clientX,
       y: clientY
     };
+  }
 
-    const leftPupilPos = calculatePupilPosition(
-      this.leftEyeCenter,
-      cursorPos,
-      this.maxDistance,
-      this.minDistance
-    );
+  startUpdateLoop() {
+    this.updateLoop();
+  }
 
-    const rightPupilPos = calculatePupilPosition(
-      this.rightEyeCenter,
-      cursorPos,
-      this.maxDistance,
-      this.minDistance
-    );
+  updateLoop() {
+    if (!this.isValid) return;
 
-    this.lastLeftPosition = leftPupilPos;
-    this.lastRightPosition = rightPupilPos;
+    if (this.currentCursorPos && this.leftEyeCenter && this.rightEyeCenter) {
+      const leftPupilPos = calculatePupilPosition(
+        this.leftEyeCenter,
+        this.currentCursorPos,
+        this.maxDistance,
+        this.minDistance
+      );
 
-    this.updatePupils(leftPupilPos, rightPupilPos);
+      const rightPupilPos = calculatePupilPosition(
+        this.rightEyeCenter,
+        this.currentCursorPos,
+        this.maxDistance,
+        this.minDistance
+      );
+
+      this.lastLeftPosition = leftPupilPos;
+      this.lastRightPosition = rightPupilPos;
+
+      this.updatePupils(leftPupilPos, rightPupilPos);
+    }
+
+    this.rafId = requestAnimationFrame(this.updateLoop);
   }
 
   updatePupils(leftPos, rightPos) {
@@ -212,6 +232,7 @@ class EyeTracker {
   }
 
   handleMouseLeave() {
+    this.currentCursorPos = null;
     this.resetPupils();
   }
 
@@ -228,6 +249,11 @@ class EyeTracker {
 
   destroy() {
     if (!this.isValid) return;
+
+    if (this.rafId) {
+      cancelAnimationFrame(this.rafId);
+      this.rafId = null;
+    }
 
     this.isValid = false;
   }
