@@ -191,7 +191,7 @@ section {
     align-items: center;
     justify-content: center;
     text-align: center;
-    min-height: max(400px, 60vh);
+    min-height: 100vh;
     padding: clamp(1rem, 4vh, 4rem) 0;
 }
 
@@ -607,7 +607,7 @@ footer a:focus {
 
     .hero {
         gap: 2rem;
-        min-height: max(500px, 70vh);
+        min-height: 100vh;
         padding: clamp(2rem, 6vh, 6rem) 0;
     }
 
@@ -643,7 +643,7 @@ footer a:focus {
 
     .hero {
         gap: 2.5rem;
-        min-height: max(600px, 80vh);
+        min-height: 100vh;
         padding: clamp(3rem, 8vh, 8rem) 0;
     }
 
